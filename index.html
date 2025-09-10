@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Recipe Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="container">
+        <article class="recipe-card" aria-labelledby="recipe-title">
+            <header class="recipe-header">
+                <h1 id="recipe-title">Lemon Garlic Chicken Pasta</h1>
+                <div class="meta">
+                    <div class="meta-item" title="Preparation time">
+                        <span class="meta-label">Prep</span>
+                        <span class="meta-value" id="prep-time" data-total-mins="25">25 mins</span>
+                    </div>
+                    <div class="meta-item" title="Servings">
+                        <span class="meta-label">Serves</span>
+                        <div class="servings-control">
+                            <button class="icon-btn" id="servings-decrease" aria-label="Decrease servings">−</button>
+                            <input id="servings" type="number" min="1" value="4" aria-label="Servings" />
+                            <button class="icon-btn" id="servings-increase" aria-label="Increase servings">+</button>
+                        </div>
+                    </div>
+                    <button class="print-btn" id="print-btn" title="Print recipe">Print</button>
+                </div>
+            </header>
+
+            <section class="media">
+                <img src="images/dish.svg" alt="A delicious plate of lemon garlic chicken pasta" />
+            </section>
+
+            <section class="controls">
+                <button id="toggle-ingredients" class="ctl">Toggle Ingredients</button>
+                <button id="toggle-steps" class="ctl">Toggle Steps</button>
+                <label class="tts-toggle">
+                    <input id="tts-enabled" type="checkbox" />
+                    <span>Voice guidance</span>
+                </label>
+            </section>
+
+            <section class="ingredients" aria-labelledby="ingredients-title">
+                <h2 id="ingredients-title">Ingredients</h2>
+                <ul id="ingredients-list">
+                    <li data-base="400">400 g spaghetti</li>
+                    <li data-base="2">2 chicken breasts, sliced</li>
+                    <li data-base="3">3 cloves garlic, minced</li>
+                    <li data-base="1">1 lemon, zest and juice</li>
+                    <li data-base="2">2 tbsp olive oil</li>
+                    <li data-base="0.5">1/2 cup grated parmesan</li>
+                    <li data-base="1">1 cup baby spinach</li>
+                    <li data-base="0.5">1/2 tsp chili flakes (optional)</li>
+                    <li data-base="1">Salt and pepper to taste</li>
+                </ul>
+                <p class="note">Ingredient quantities scale with servings.</p>
+            </section>
+
+            <section class="steps" aria-labelledby="steps-title">
+                <h2 id="steps-title">Steps</h2>
+                <ol id="steps-list">
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Bring a pot of salted water to a boil; cook spaghetti until al dente.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Heat olive oil in a pan; sauté garlic for 30 seconds.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Add chicken; cook until browned and cooked through.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Add lemon zest, juice, and chili flakes; stir to combine.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Reserve some pasta water; toss pasta with chicken and spinach.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Stir in parmesan and splash of pasta water to make it glossy.</span></label></li>
+                    <li class="step-item"><label><input type="checkbox" class="step-check" /><span class="step-text">Season with salt and pepper; serve warm.</span></label></li>
+                </ol>
+
+                <div class="progress">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+
+                <div class="cook-controls">
+                    <div class="timer" aria-live="polite">
+                        <span class="timer-label">Timer:</span>
+                        <span id="timer-display">00:00</span>
+                    </div>
+                    <div class="buttons">
+                        <button id="start-btn" class="primary">Start Cooking</button>
+                        <button id="next-btn" class="secondary" disabled>Next</button>
+                        <button id="reset-btn" class="tertiary" disabled>Reset</button>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <footer class="site-footer">
+            <small>Tip: Use the print button for a clean, paper-friendly version.</small>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+<noscript>
+    This page works best with JavaScript enabled.
+    You can still read the recipe, but interactive features are disabled.
+    
+</noscript>
+</html>
+
+
